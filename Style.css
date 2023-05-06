@@ -1,4 +1,40 @@
-.footer{
+
+
+h1 {
+    border: 2px solid black; /* add a 1px solid black border */
+    padding: 10px; /* add some padding to the heading */
+    display: inline-block; /* make the heading an inline-block element to fit the border */
+  }
+  
+
+  .form-group {
+    
+    border: solid black;
+  }
+
+
+
+
+
+
+.card {
+    border: 4px solid black;
+
+  }
+
+  .card-title {
+    font-weight: bold;
+  }
+  .Assigned {
+    font-weight: bold;
+  }
+
+  .card-body {
+    font-weight: bold;
+  }
+
+  .footer{
     background-color: #f8f9fa;
     padding: 20px;
 }
+  

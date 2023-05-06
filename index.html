@@ -12,9 +12,12 @@
   
   
     <div class="container my-3">
-      <h1>Task Planner</h1>
       <div class="row">
-        <div class="col-md-6  my-4">
+        <div class="col">
+          <h1>Task Planner</h1>
+      
+      
+
           <!-- Task Form -->
           <h2>Add Task</h2>
           <form>
@@ -22,18 +25,22 @@
               <label for="taskName">Task Name</label>
               <input type="text" class="form-control" id="taskName" name="taskName">
             </div>
-            <div class="form-group">
+
+            <div class="form-group  my-5">
               <label for="description">Description</label>
               <textarea class="form-control" id="description" name="description"></textarea>
             </div>
+
             <div class="form-group my-5">
               <label for="assignedTo">Assigned To</label>
               <input type="text" class="form-control" id="assignedTo" name="assignedTo">
             </div>
+
             <div class="form-group my-5">
               <label for="dueDate">Due Date</label>
               <input type="date" class="form-control" id="dueDate" name="dueDate">
             </div>
+
             <div class="form-group my-5">
               <label for="status">Status</label>
               <select class="form-control" id="status" name="status">
@@ -50,62 +57,65 @@
           <!-- Task Layout -->
           <h2>Task List</h2>
           <ul class="list-group">
+          </ul>
             <!-- Sample Tasks -->
-            
 
-            <div class="card w-75 mb-lg-1">
-              <div class="card-body">
-                <h5 class="card-title">TASK 1</h5>
-                <p class="card-text">This is description of Task 1.</p>
-                <p class="Assigned"> Assigned To: Val</p>
-                <p class="Due Date">Due date: 04/05/2023 </p>
-                <p class="stauts">Status: To Do</p>
-            </div>
-            </div>
 
-            
+           <div class="container my-5">
+          <div class="row">
+    
+         <div class="card m-2 w-75 sm-12 col-md-6 col-lg-4 bg-light text-black">
+        <div class="card-body">
+          <h5 class="card-title">TASK 1</h5>
+          <p class="card-text">This is description of Task 1.</p>
+          <p class="Assigned"> Assigned To: Val</p>
+          <p class="Due Date">Due date: 04/05/2023 </p>
+          <p class="status">Status: To Do</p>
+        </div>
+      </div>
+      
+      <div class="card m-2 w-75 sm-12 col-md-6 col-lg-4 bg-warning text-black">
+        <div class="card-body">
+          <h5 class="card-title">TASK 2</h5>
+          <p class="card-text">This is description of Task 2.</p>
+          <p class="Assigned"> Assigned To: Zenab</p>
+          <p class="Due Date">Due date: 05/05/2023 </p>
+          <p class="status">Status: In Progress</p>
+        </div>
+      </div>
 
-          <div class="card w-75 mb-lg-1">
-              <div class="card-body">
-                <h5 class="card-title">TASK 2</h5>
-                <p class="card-text">This is description of Task 2.</p>
-                <p class="Assigned"> Assigned To: Zenab</p>
-                <p class="Due Date">Due date: 05/05/2023 </p>
-                <p class="stauts">Status: In Progress</p>
-            </div>
-            </div>
+      <div class="card m-2 w-75 sm-12 col-md-6 col-lg-4 bg-success  text black">
+        <div class="card-body">
+          <h5 class="card-title">TASK 3</h5>
+          <p class="card-text">This is description of Task 3.</p>
+          <p class="Assigned"> Assigned To: Val</p>
+          <p class="Due Date">Due date: 04/05/2023 </p>
+          <p class="status">Status: In Progress</p>
+        </div>
+      </div>
 
-            
-              <div class="card w-75 mb-lg-1">
-              <div class="card-body">
-                <h5 class="card-title">TASK 3</h5>
-                <p class="card-text">This is description of Task 3.</p>
-                <p class="Assigned"> Assigned To: Val</p>
-                <p class="Due Date">Due date: 04/05/2023 </p>
-                <p class="stauts">Status: In Progress</p>
-            </div>
-            </div>
+      <div class="card m-2 w-75 sm-12 col-md-6 col-lg-4 bg-primary text-black">
+        <div class="card-body">
+          <h5 class="card-title">TASK 4</h5>
+          <p class="card-text">This is description of Task 4.</p>
+          <p class="Assigned"> Assigned To: Val</p>
+          <p class="Due Date">Due date: 04/05/2023 </p>
+          <p class="status">Status: In Progress</p>
+        </div>
+      </div>
 
-             <div class="card w-75 mb-lg-1">
-              <div class="card-body">
-                <h5 class="card-title">TASK 4</h5>
-                <p class="card-text">This is description of Task 4.</p>
-                <p class="Assigned"> Assigned To: Val</p>
-                <p class="Due Date">Due date: 04/05/2023 </p>
-                <p class="stauts">Status: In Progress</p>
-            </div>
-            </div>
+      <div class="card m-2 w-75 sm-12 col-md-6 col-lg-4 bg-danger text text-black">
+        <div class="card-body">
+          <h5 class="card-title">TASK 5</h5>
+          <p class="card-text">This is description of Task 5.</p>
+          <p class="Assigned"> Assigned To: Zenab</p>
+          <p class="Due Date">Due date: 08/05/2023 </p>
+          <p class="status">Status: Done</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <div class="card w-75 mb-lg-1">
-              <div class="card-body">
-                <h5 class="card-title">TASK 5</h5>
-                <p class="card-text">This is description of Task 5.</p>
-                <p class="Assigned"> Assigned To: Zenab</p>
-                <p class="Due Date">Due date: 08/05/2023 </p>
-                <p class="stauts">Status: Done</p>
-                
-              </div>
-            </div>
 
             <div class="button">
             <a href="#" class="btn btn-primary">Button</a>
