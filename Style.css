@@ -3,7 +3,8 @@
 h1 {
     border: 2px solid black; /* add a 1px solid black border */
     padding: 10px; /* add some padding to the heading */
-    display: inline-block; /* make the heading an inline-block element to fit the border */
+   background-color: white;
+    text-align: center;
   }
   
 
@@ -12,7 +13,9 @@ h1 {
     border: solid black;
   }
 
-
+body {
+  background-color: lightgreen;
+}
 
 
 
