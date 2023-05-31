@@ -39,17 +39,14 @@ function validateForm() {
 
     // Validate Status
     if (status === "") {
-      displayError("statusError", "Status is required.");
+      alert("statusError", "Status is required.");
       isValid = false;
     }
 
     return isValid;
   }
 
-  function displayError(id, message) {
-    var errorElement = document.getElementById(id);
-    errorElement.innerText = message;
-  }
+
 
   function clearErrors() {
     var errorElements = document.getElementsByClassName("error-text");
