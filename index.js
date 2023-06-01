@@ -1,4 +1,5 @@
 
+
 function validateForm() {
     // Clear previous error messages
     clearErrors();
@@ -43,10 +44,8 @@ function validateForm() {
       isValid = false;
     }
 
-    return isValid;
-  }
-
-
+ return isValid;
+}
 
   function clearErrors() {
     var errorElements = document.getElementsByClassName("error-text");
