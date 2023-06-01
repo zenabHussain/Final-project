@@ -71,6 +71,7 @@ function validateForm() {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  return isValid;
 }
 
@@ -91,6 +92,18 @@ function validateForm() {
 >>>>>>> d0a79a0d3440487778e152ab9ed36a262f726f3f
   }
 
+=======
+    return isValid;
+  }
+
+
+  // Validate Assigned To
+  if (assignedTo === "") {
+    alert("assignedToError", "Assigned To is required.");
+    isValid = false;
+  }
+
+>>>>>>> d0a79a0d3440487778e152ab9ed36a262f726f3f
   // Validate Due Date
   if (dueDate === "") {
     displayError("dueDateError", "Due Date is required.");
