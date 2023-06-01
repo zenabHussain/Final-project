@@ -1,30 +1,55 @@
 // Task class
 class Task {
-    constructor(taskName, description, assignedTo, dueDate, status) {
+ 
+    constructor(taskID, taskName, description, assignedTo, dueDate, status) {
       this.taskName = taskName;
       this.description = description;
       this.assignedTo = assignedTo;
       this.dueDate = dueDate;
       this.status = status;
+      this.taskID=taskID;
     }
   }
-  
+  let counter=0;
   // Task list
   const taskList = [];
   
   // Function to add a new task
-  function addTask(taskName, description, assignedTo, dueDate, status) {
-    const task = new Task(taskName, description, assignedTo, dueDate, status);
-    taskList.push(task);
-  }
+  function addTask() {
+  let a=document.getElementById("taskName").value;
+  let b=document.getElementById("description").value;
+  let c =document.getElementById("assignedTo").value;
+  let d=document.getElementById("dueDate").value;
+  let e=document.getElementById("status").value;
+
+taskList.push(counter, a,b,c,d,e);
+counter++;
+console.log(taskList);
+let taskListElement = document.getElementById('taskList');
+let taskItemElement = document.createElement('li');
+taskItemElement.innerHTML =
+  '<div class="form-group w-75 my-5">' +
+  a +
+  '</strong> - ' +
+  b +
+  ' (Due: ' +
+  c +
+  '</div>';
+taskListElement.appendChild(taskItemElement);
+  } 
+// Add task event listener
+document.getElementById('task').addEventListener('click', function () {
+  let taskName = document.getElementById('taskName').value;
+  let description = document.getElementById('description').value;
+
+
+});
+
   
-  // Example tasks
-  addTask("Task 1", "Description of Task 1", "Val", "2023-05-04", "To Do");
-  addTask("Task 2", "Description of Task 2", "Zenab", "2023-05-05", "In Progress");
-  addTask("Task 3", "Description of Task 3", "Val", "2023-05-04", "In Progress");
-  addTask("Task 4", "Description of Task 4", "Val", "2023-05-04", "In Progress");
-  addTask("Task 5", "Description of Task 5", "Zenab", "2023-05-08", "Done");
+
+document.getElementById("task").addEventListener('click', addTask);
+
+
+
   
-  // Print task list
-  console.log(taskList);
   
