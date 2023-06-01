@@ -29,11 +29,17 @@ let taskListElement = document.getElementById('taskList');
 let taskItemElement = document.createElement('li');
 taskItemElement.innerHTML =
   '<div class="form-group w-75 my-5">' +
-  a +
-  '</strong> - ' +
-  b +
-  ' (Due: ' +
-  c +
+  
+  'Taskname:  '    + a + 
+  '<br>' +
+  'Description:  '  + b +
+  '<br>' +  
+  'AssignedTo:  '   + c +
+  '<br>' +  
+  'DueDate:  '      +  d +  
+  '<br>' +  
+  'Status:  '       +  e +  
+  '<br>' +   
   '</div>';
 taskListElement.appendChild(taskItemElement);
   } 
