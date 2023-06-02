@@ -53,7 +53,18 @@ function validateForm() {
       errorElements[i].innerText = "";
 
     }
+
+
+    function alert(errorId, errorMessage) {
+      var errorElement = document.getElementById(errorId);
+      errorElement.innerText = errorMessage;
+      errorElement.style.color = "red";
+    
+      // Show pop-up validation message
+      alert(errorMessage);
+    }
+    
   }
 
 
-  document.getElementById("task").addEventListener('click', validateForm);
+  //document.getElementById("task").addEventListener('click', validateForm);

@@ -43,32 +43,6 @@ body {
 /* styles.css */
 
 .pop-up-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f2f2f2;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 999;
-}
-
-.pop-up-card-content {
-  color: #333;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 18px;
-  cursor: pointer;
-}
-/* styles.css */
-
-.pop-up-card {
   position: relative;
   top: 50%;
   left: 50%;
@@ -92,5 +66,6 @@ body {
   font-size: 18px;
   cursor: pointer;
 }
+
 
   
