@@ -26,7 +26,8 @@ function validateForm() {
 
   // Validate Assigned To
   if (assignedTo === "") {
-    error("Assigned To is required.");
+    alert("assignedToError", "Assigned To is required.");
+    
     isValid = false;
   }
 
