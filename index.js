@@ -48,23 +48,18 @@ function validateForm() {
 }
 
   function clearErrors() {
-    var errorElements = document.getElementsByClassName("error-text");
-    for (var i = 0; i < errorElements.length; i++) {
+    let errorElements = document.getElementsByClassName("error-text");
+    for (let i = 0; i < errorElements.length; i++) {
       errorElements[i].innerText = "";
 
     }
 
-
-    function alert(errorId, errorMessage) {
-      var errorElement = document.getElementById(errorId);
+     function alert(errorId, errorMessage) {
+      let errorElement = document.getElementById(errorId);
       errorElement.innerText = errorMessage;
       errorElement.style.color = "red";
-    
-      // Show pop-up validation message
-      alert(errorMessage);
     }
-    
   }
 
 
-  //document.getElementById("task").addEventListener('click', validateForm);
+  document.getElementById("task").addEventListener('click', validateForm);

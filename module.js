@@ -1,4 +1,6 @@
 // Task class
+
+
 class Task {
  
     constructor(taskID, taskName, description, assignedTo, dueDate, status) {
@@ -18,7 +20,11 @@ class Task {
  
   // Add task function
 function addTask() {
-  // Get input values
+  
+let check=validateForm();
+
+
+
   let a = document.getElementById("taskName").value;
   let b = document.getElementById("description").value;
   let c = document.getElementById("assignedTo").value;
@@ -54,13 +60,12 @@ function addTask() {
 
   // Append card container to body
   document.body.appendChild(cardContainer);
-}
 
 // Close card function
 function closeCard() {
   let card = document.querySelector('.pop-up-card');
   document.body.removeChild(card);
 }
-
+}
 // Add task event listener
 document.getElementById('task').addEventListener('click', addTask);
