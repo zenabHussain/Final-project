@@ -1,4 +1,8 @@
-function validateForm() {
+
+
+
+
+  function validateForm() {
   // Clear previous error messages
   clearErrors();
 
@@ -63,3 +67,5 @@ function validateForm() {
 
 
   document.getElementById("task").addEventListener('click', validateForm);
+  //
+  

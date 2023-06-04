@@ -19,34 +19,6 @@ body {
   border-radius: 15px;
   
 }
-
-
-
-
-
-.card {
-    border: 4px solid black;
-}
-
-  .card-title {
-    font-weight: bold;
-  }
-  .Assigned {
-    font-weight: bold;
-  }
-
-  .card-body {
-    font-weight: bold;
-  }
-
-  footer{
-    background-color: hsl(120, 35%, 49%);
-    padding: 10px;
-    margin-top: 6rem;
-    margin-bottom: 20px;
-    position: relative;
-}
-
 /* styles.css */
 
 
@@ -86,5 +58,13 @@ body {
   cursor: pointer;
 }
 
+footer{
+  background-color: hsl(120, 35%, 49%);
+  padding: 10px;
+  margin-top: 6rem;
+  margin-bottom: 20px;
+  position: relative;
+
+}
 
   
