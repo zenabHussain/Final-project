@@ -17,6 +17,7 @@ class TaskManager {
     this.counter = 1;
   }
 
+ 
   addTask(task) {
     this.taskList.push(task);
     this.counter++;
@@ -44,6 +45,7 @@ function loadTasks() {
       taskData.dueDate,
       taskData.status
     );
+    
     taskManager.addTask(task);
     addTaskToDOM(task);
   }

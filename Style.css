@@ -21,44 +21,10 @@ background-color: lightskyblue;
 
 
 
-.card {
-  border: 4px solid black;
-}
-
-.card-title {
-  font-weight: bold;
-}
-.Assigned {
-  font-weight: bold;
-}
-
-.card-body {
-  font-weight: bold;
-}
-
-.footer{
-  background-color: #f8f9fa;
-  padding: 20px;
-}
 
 /* styles.css */
 
-.pop-up-card {
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background-color: #f2f2f2;
-border: 2px solid #ccc;
-border-radius: 8px;
-padding: 20px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-z-index: 999;
-}
 
-.pop-up-card-content {
-color: #333;
-}
 
 
 .delete-button {
