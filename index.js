@@ -1,86 +1,5 @@
-// Task class
-class Task {
-  constructor(taskID, taskName, description, assignedTo, dueDate, status) {
-    this.taskID = taskID;
-    this.taskName = taskName;
-    this.description = description;
-    this.assignedTo = assignedTo;
-    this.dueDate = dueDate;
-    this.status = status;
-  }
-}
-
-// TaskManager class
-class TaskManager {
-  constructor() {
-    this.taskList = [];
-    this.counter = 1;
-  }
-
-  addTask(task) {
-    this.taskList.push(task);
-    this.counter++;
-  }
-
-  deleteTask(taskID) {
-    const index = this.taskList.findIndex(task => task.taskID === taskID);
-    if (index !== -1) {
-      this.taskList.splice(index, 1);
-    }
-  }
-}
-
-const taskManager = new TaskManager();
-
-function addTaskToDOM(task) {
-  // Create task card container
-  let taskCard = document.createElement("div");
-  taskCard.className = "task-card";
-
-  // Set task card HTML
-  taskCard.innerHTML =
-    '<span class="task-id">' +
-    "</span>" +
-    "<br>" +
-    "<strong>Task Name:</strong> " +
-    task.taskName +
-    '<div class="task-details">' +
-    "<strong>Description:</strong> " +
-    task.description +
-    "<br>" +
-    "<strong>Assigned To:</strong> " +
-    task.assignedTo +
-    "<br>" +
-    "<strong>Due Date:</strong> " +
-    task.dueDate +
-    "<br>" +
-    "<strong>Status:</strong> " +
-    task.status +
-    "</div>" +
-    '<button class="delete-button" data-id="' +
-    task.taskID +
-    '">Delete</button>';
-
-  // Append task card to task list container
-  let taskListContainer = document.getElementById("taskList");
-  taskListContainer.appendChild(taskCard);
-}
-
-function deleteTaskFromDOM(taskID) {
-  let taskCards = document.getElementsByClassName("task-card");
-  for (let i = 0; i < taskCards.length; i++) {
-    let card = taskCards[i];
-    if (card.querySelector(".delete-button").getAttribute("data-id") == taskID) {
-      card.remove();
-      break;
-    }
-  }
-}
-
-
-function validateForm(event) {
-  event.preventDefault(); // Prevent the form from being submitted
-
+function validateForm() {
+  // Clear previous error messages
   clearErrors();
 
   var taskNameInput = document.getElementById("taskName");
@@ -186,3 +105,4 @@ function clearErrors() {
 document.getElementById("taskForm").addEventListener("submit", validateForm);
 
 
+  document.getElementById("task").addEventListener('click', validateForm);

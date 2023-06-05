@@ -21,24 +21,28 @@ background-color: lightskyblue;
 
 
 
+
 .card {
-  border: 4px solid black;
+    border: 4px solid black;
 }
 
-.card-title {
-  font-weight: bold;
-}
-.Assigned {
-  font-weight: bold;
-}
+  .card-title {
+    font-weight: bold;
+  }
+  .Assigned {
+    font-weight: bold;
+  }
 
-.card-body {
-  font-weight: bold;
-}
+  .card-body {
+    font-weight: bold;
+  }
 
-.footer{
-  background-color: #f8f9fa;
-  padding: 20px;
+  footer{
+    background-color: hsl(120, 35%, 49%);
+    padding: 10px;
+    margin-top: 6rem;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 /* styles.css */
@@ -72,4 +76,12 @@ background-color: blue;
 
 }
 
+footer{
+  background-color: hsl(120, 35%, 49%);
+  padding: 10px;
+  margin-top: 6rem;
+  margin-bottom: 20px;
+  position: relative;
+
+}
 
