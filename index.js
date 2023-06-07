@@ -21,7 +21,9 @@ class TaskManager {
   addTask(task) {
     this.taskList.push(task);
     this.counter++;
+    saveTasks(); // Save tasks to local storage
   }
+  
 
   deleteTask(taskID) {
     const index = this.taskList.findIndex(task => task.taskID === taskID);
@@ -31,24 +33,32 @@ class TaskManager {
   }
 }
 
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(taskManager.taskList));
+}
+
 const taskManager = new TaskManager();
 
 // Load tasks from localStorage
 function loadTasks() {
-  for (const taskData of data) {
-    const task = new Task(
-      taskData.taskID,
-      taskData.taskName,
-      taskData.description,
-      taskData.assignedTo,
-      taskData.dueDate,
-      taskData.status
-    );
-
-    taskManager.addTask(task);
-    addTaskToDOM(task);
+  const storedTasks = localStorage.getItem("tasks");
+  if (storedTasks) {
+    const tasks = JSON.parse(storedTasks);
+    for (const taskData of tasks) {
+      const task = new Task(
+        taskData.taskID,
+        taskData.taskName,
+        taskData.description,
+        taskData.assignedTo,
+        taskData.dueDate,
+        taskData.status
+      );
+      taskManager.addTask(task);
+      addTaskToDOM(task);
     }
   }
+}
+
 
   
 
