@@ -23,7 +23,12 @@ background-color: lightskyblue;
 
 /* styles.css */
 
-
+.delete-button{
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
 
 
 

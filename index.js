@@ -11,15 +11,15 @@ class Task {
 }
 
 
-
 // TaskManager class
-
   class TaskManager {
   
     constructor() {
       this.taskList = [];
       this.counter = 0;
+      console.log(this.taskList);
     }
+
     addTask(task) {
       this.taskList.push(task);
       this.counter++;
@@ -41,9 +41,9 @@ class Task {
   }
   
 
- const taskManager = new TaskManager();
- function doneTasks() {
-  let span = document.getElementsByClassName("spin");
+   const taskManager = new TaskManager();
+   function doneTasks() {
+   let span = document.getElementsByClassName("spin");
   let doneButton = document.getElementsByClassName("doneButton");
 
   for (let i = 0; i < doneButton.length; i++) {
@@ -85,7 +85,8 @@ function loadTasks() {
 
     taskManager.addTask(task);
     addTaskToDOM(task);
-    }
+    
+  }
   
  
     doneTasks();
@@ -121,7 +122,7 @@ function addTaskToDOM(task) {
     "<strong>Status:</strong> " + '<span class="spin">'+
     task.status + "</span>" +
     "</div>" +
-    '<button class="delete-button" data-id="'+
+    '<button class="delete-button"   data-id="'+
     task.taskID +
     '">Delete</button>' +  '<button   class="btn btn-primary doneButton">Done</button>';
 
