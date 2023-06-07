@@ -7,34 +7,72 @@ class Task {
     this.assignedTo = assignedTo;
     this.dueDate = dueDate;
     this.status = status;
-  }
+    }
 }
+
+
 
 // TaskManager class
-class TaskManager {
-  constructor() {
-    this.taskList = [];
-    this.counter = 1;
-  }
 
- 
-  addTask(task) {
-    this.taskList.push(task);
-    this.counter++;
-  }
+  class TaskManager {
+  
+    constructor() {
+      this.taskList = [];
+      this.counter = 0;
+      console.log(this.taskList);
+    }
 
-  deleteTask(taskID) {
-    const index = this.taskList.findIndex(task => task.taskID === taskID);
-    if (index !== -1) {
-      this.taskList.splice(index, 1);
+    addTask(task) {
+      this.taskList.push(task);
+      this.counter++;
+    }
+  
+    deleteTask(taskID) {
+      const index = this.taskList.findIndex((task) => task.taskID === taskID);
+      if (index !== -1) {
+        this.taskList.splice(index, 1);
+      }
+    }
+  
+    updateTaskStatus(taskID) {
+      const task = this.taskList.find((task) => task.taskID === taskID);
+      if (task) {
+        task.status = "Done";
+      }
     }
   }
-}
+  
 
-const taskManager = new TaskManager();
+ const taskManager = new TaskManager();
+ function doneTasks() {
+  let span = document.getElementsByClassName("spin");
+  let doneButton = document.getElementsByClassName("doneButton");
+
+  for (let i = 0; i < doneButton.length; i++) {
+    const element = doneButton[i];
+    const element1 = span[i];
+
+    element.addEventListener("click", (event) => {
+      let target = event.target;
+      let parent = target.parentElement;
+
+      
+      element1.innerHTML = "Done";
+
+      const taskID = parseInt(target.getAttribute("data-task-id"));
+      taskManager.updateTaskStatus(taskID, "Done");
+
+      // Remove the "Done" button from the DOM
+     target.remove();
+
+      saveTasks();
+    });
+  }
+}
 
 // Load tasks from localStorage
 function loadTasks() {
+  const data = JSON.parse(localStorage.getItem("data")) || [];
   for (const taskData of data) {
     const task = new Task(
       taskData.taskID,
@@ -43,14 +81,23 @@ function loadTasks() {
       taskData.assignedTo,
       taskData.dueDate,
       taskData.status
-    );
+      );
+
+
 
     taskManager.addTask(task);
     addTaskToDOM(task);
     }
+  
+ 
+    doneTasks();
+
   }
 
-  
+  function saveTasks() {
+    const data = JSON.stringify(taskManager.taskList);
+    localStorage.setItem("data", data);
+  }
 
 function addTaskToDOM(task) {
   // Create task card container
@@ -59,8 +106,7 @@ function addTaskToDOM(task) {
 
   // Set task card HTML
   taskCard.innerHTML =
-    '<span class="task-id">' +
-    "</span>" +
+    
     "<br>" +
     "<strong>Task Name:</strong> " +
     task.taskName +
@@ -74,16 +120,18 @@ function addTaskToDOM(task) {
     "<strong>Due Date:</strong> " +
     task.dueDate +
     "<br>" +
-    "<strong>Status:</strong> " +
-    task.status +
+    "<strong>Status:</strong> " + '<span class="spin">'+
+    task.status + "</span>" +
     "</div>" +
-    '<button class="delete-button" data-id="' +
+    '<button class="delete-button btn btn-primary" data-id="'+
     task.taskID +
-    '">Delete</button>';
+    '">Delete</button>' +  '<button   class="btn btn-primary doneButton">Done</button>';
 
   // Append task card to task list container
   let taskListContainer = document.getElementById("taskList");
   taskListContainer.appendChild(taskCard);
+
+  doneTasks();
 }
 
 function deleteTaskFromDOM(taskID) {
@@ -152,12 +200,14 @@ function validateForm(event) {
       assignedToInput.value,
       dueDateInput.value,
       statusInput.value
+  
     );
+
 
     taskManager.addTask(newTask);
 
     // Add the task to the task list
-    addTaskToDOM(newTask);
+   addTaskToDOM(newTask);
 
     // Reset the form
     document.getElementById("taskForm").reset();
@@ -168,8 +218,8 @@ function validateForm(event) {
 }
 
 // Delete task
-function handleDeleteTask(event) {
-  if (event.target.classList.contains("delete-button")) {
+    function handleDeleteTask(event) {
+    if (event.target.classList.contains("delete-button")) {
     const taskID = parseInt(event.target.getAttribute("data-id"));
     taskManager.deleteTask(taskID);
     deleteTaskFromDOM(taskID);
@@ -209,3 +259,16 @@ document.getElementById("taskForm").addEventListener("submit", validateForm);
 
 // Load tasks on page load
 document.addEventListener("DOMContentLoaded", loadTasks);
+
+
+
+
+
+/* 
+add event parameter to done function
+find event.target
+find target.parentElement
+use querry selector all on status [i] change status at index
+using the querry selctor on the parent we can find the done buuton @ index [i] set display none
+*/
+

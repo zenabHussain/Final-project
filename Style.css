@@ -26,15 +26,12 @@ background-color: lightskyblue;
 
 
 
-.delete-button {
-background-color: blue;
-color: white;
-border: none;
-border-radius: 8px;
+
+
+
+.btn {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
 }
-.btn-primary {
-background-color: blue;
-
-}
-
-
