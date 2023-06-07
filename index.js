@@ -17,6 +17,7 @@ class TaskManager {
     this.counter = 1;
   }
 
+ 
   addTask(task) {
     this.taskList.push(task);
     this.counter++;
@@ -34,7 +35,6 @@ const taskManager = new TaskManager();
 
 // Load tasks from localStorage
 function loadTasks() {
-  const data = JSON.parse(localStorage.getItem("data")) || [];
   for (const taskData of data) {
     const task = new Task(
       taskData.taskID,
@@ -44,15 +44,13 @@ function loadTasks() {
       taskData.dueDate,
       taskData.status
     );
+
     taskManager.addTask(task);
     addTaskToDOM(task);
+    }
   }
-}
 
-function saveTasks() {
-  const data = JSON.stringify(taskManager.taskList);
-  localStorage.setItem("data", data);
-}
+  
 
 function addTaskToDOM(task) {
   // Create task card container
