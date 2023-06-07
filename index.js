@@ -19,27 +19,58 @@ class Task {
     constructor() {
       this.taskList = [];
       this.counter = 0;
-      console.log(this.taskList);
     }
-
- 
-  addTask(task) {
-    this.taskList.push(task);
-    this.counter++;
+    addTask(task) {
+      this.taskList.push(task);
+      this.counter++;
+    }
+  
+    deleteTask(taskID) {
+      const index = this.taskList.findIndex((task) => task.taskID === taskID);
+      if (index !== -1) {
+        this.taskList.splice(index, 1);
+      }
+    }
+  
+    updateTaskStatus(taskID) {
+      const task = this.taskList.find((task) => task.taskID === taskID);
+      if (task) {
+        task.status = "Done";
+      }
+    }
   }
+  
 
-  deleteTask(taskID) {
-    const index = this.taskList.findIndex(task => task.taskID === taskID);
-    if (index !== -1) {
-      this.taskList.splice(index, 1);
-    }
+ const taskManager = new TaskManager();
+ function doneTasks() {
+  let span = document.getElementsByClassName("spin");
+  let doneButton = document.getElementsByClassName("doneButton");
+
+  for (let i = 0; i < doneButton.length; i++) {
+    const element = doneButton[i];
+    const element1 = span[i];
+
+    element.addEventListener("click", (event) => {
+      let target = event.target;
+      let parent = target.parentElement;
+
+      
+      element1.innerHTML = "Done";
+
+      const taskID = parseInt(target.getAttribute("data-task-id"));
+      taskManager.updateTaskStatus(taskID, "Done");
+
+      // Remove the "Done" button from the DOM
+     target.remove();
+
+      saveTasks();
+    });
   }
 }
 
-const taskManager = new TaskManager();
-
 // Load tasks from localStorage
 function loadTasks() {
+  const data = JSON.parse(localStorage.getItem("data")) || [];
   for (const taskData of data) {
     const task = new Task(
       taskData.taskID,
@@ -48,7 +79,9 @@ function loadTasks() {
       taskData.assignedTo,
       taskData.dueDate,
       taskData.status
-    );
+      );
+
+
 
     taskManager.addTask(task);
     addTaskToDOM(task);
@@ -58,8 +91,6 @@ function loadTasks() {
     doneTasks();
 
   }
-}
-
 
   function saveTasks() {
     const data = JSON.stringify(taskManager.taskList);
@@ -90,7 +121,7 @@ function addTaskToDOM(task) {
     "<strong>Status:</strong> " + '<span class="spin">'+
     task.status + "</span>" +
     "</div>" +
-    '<button class="delete-button btn btn-primary" data-id="'+
+    '<button class="delete-button" data-id="'+
     task.taskID +
     '">Delete</button>' +  '<button   class="btn btn-primary doneButton">Done</button>';
 
@@ -226,3 +257,16 @@ document.getElementById("taskForm").addEventListener("submit", validateForm);
 
 // Load tasks on page load
 document.addEventListener("DOMContentLoaded", loadTasks);
+
+
+
+
+
+/* 
+add event parameter to done function
+find event.target
+find target.parentElement
+use querry selector all on status [i] change status at index
+using the querry selctor on the parent we can find the done buuton @ index [i] set display none
+*/
+
