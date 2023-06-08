@@ -43,6 +43,7 @@ class Task {
       const task = this.taskList.find((task) => task.taskID === taskID);
       if (task) {
         task.status = "Done";
+        console.log(this.taskList);
       }
       console.log(taskID);
     }
@@ -75,6 +76,10 @@ class Task {
       taskManager.updateTaskStatus(taskID, "Done");
 
       // Remove the "Done" button from the DOM
+      let status_element = document.getElementById("status_"+taskID);
+      console.log(status_element);
+
+     status_element.innerHTML='Done';
      target.remove();
 
       saveTasks();
