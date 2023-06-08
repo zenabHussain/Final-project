@@ -36,6 +36,8 @@ class Task {
       const task = this.taskList.find((task) => task.taskID === taskID);
       if (task) {
         task.status = "Done";
+      
+      console.log(this.taskList)
       }
     }
   }
@@ -61,7 +63,7 @@ class Task {
       taskManager.updateTaskStatus(taskID, "Done");
 
       // Remove the "Done" button from the DOM
-     target.remove();
+      target.remove();
 
       saveTasks();
     });
@@ -125,6 +127,8 @@ function addTaskToDOM(task) {
     '<button class="delete-button"   data-id="'+
     task.taskID +
     '">Delete</button>' +  '<button   class="btn btn-primary doneButton">Done</button>';
+    
+  
 
   // Append task card to task list container
   let taskListContainer = document.getElementById("taskList");
