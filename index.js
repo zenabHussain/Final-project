@@ -15,9 +15,9 @@ class Task {
   class TaskManager {
   
     constructor() {
-      this.taskList = [];
-      this.counter = 0;
-      console.log(this.taskList);
+    this.taskList = [];
+    this.counter = 0;
+    console.log(this.taskList);
     }
 
     addTask(task) {
@@ -33,17 +33,10 @@ class Task {
     }
   
     updateTaskStatus(taskID) {
-
-      //const index = this.taskList.findIndex((task) => task.taskID === taskID);
-      //if (index !== -1) {
-      //  this.taskList[index].task.status='Done';
-      //  saveTasks();
-      //}
-
-      const task = this.taskList.find((task) => task.taskID === taskID);
+    const task = this.taskList.find((task) => task.taskID === taskID);
       if (task) {
-        task.status = "Done";
-        console.log(this.taskList);
+      task.status = "Done";
+      console.log(this.taskList);
       }
       console.log(taskID);
     }
@@ -67,13 +60,10 @@ class Task {
       let parent = target.parentElement;
 
       
-      //element1.innerHTML = "XXX";
-
-
       
-
       const taskID = parseInt(target.getAttribute("data-id"));
       taskManager.updateTaskStatus(taskID, "Done");
+
 
       // Remove the "Done" button from the DOM
       let status_element = document.getElementById("status_"+taskID);
@@ -88,9 +78,9 @@ class Task {
 }
 
 // Load tasks from localStorage
-function loadTasks() {
-  const data = JSON.parse(localStorage.getItem("data")) || [];
-  for (const taskData of data) {
+   function loadTasks() {
+   const data = JSON.parse(localStorage.getItem("data")) || [];
+   for (const taskData of data) {
     let task = new Task(
       taskData.taskID,
       taskData.taskName,
@@ -170,7 +160,7 @@ function deleteTaskFromDOM(taskID) {
   }
 }
 
-function validateForm(event) {
+  function validateForm(event) {
   event.preventDefault(); // Prevent the form from being submitted
 
   clearErrors();
@@ -286,13 +276,3 @@ document.getElementById("taskForm").addEventListener("submit", validateForm);
 document.addEventListener("DOMContentLoaded", loadTasks);
 
 
-
-
-
-/* 
-add event parameter to done function
-find event.target
-find target.parentElement
-use querry selector all on status [i] change status at index
-using the querry selctor on the parent we can find the done buuton @ index [i] set display none
-*/
