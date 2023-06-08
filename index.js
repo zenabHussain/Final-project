@@ -33,12 +33,18 @@ class Task {
     }
   
     updateTaskStatus(taskID) {
+
+      //const index = this.taskList.findIndex((task) => task.taskID === taskID);
+      //if (index !== -1) {
+      //  this.taskList[index].task.status='Done';
+      //  saveTasks();
+      //}
+
       const task = this.taskList.find((task) => task.taskID === taskID);
       if (task) {
         task.status = "Done";
-      
-      console.log(this.taskList)
       }
+      console.log(taskID);
     }
   }
   
@@ -51,19 +57,25 @@ class Task {
   for (let i = 0; i < doneButton.length; i++) {
     const element = doneButton[i];
     const element1 = span[i];
+    //element1.innerHTML='XXXX';
+    //console.log('status_html='+element1.innerHTML);
+    
 
     element.addEventListener("click", (event) => {
       let target = event.target;
       let parent = target.parentElement;
 
       
-      element1.innerHTML = "Done";
+      //element1.innerHTML = "XXX";
 
-      const taskID = parseInt(target.getAttribute("data-task-id"));
+
+      
+
+      const taskID = parseInt(target.getAttribute("data-id"));
       taskManager.updateTaskStatus(taskID, "Done");
 
       // Remove the "Done" button from the DOM
-      target.remove();
+     target.remove();
 
       saveTasks();
     });
@@ -74,7 +86,7 @@ class Task {
 function loadTasks() {
   const data = JSON.parse(localStorage.getItem("data")) || [];
   for (const taskData of data) {
-    const task = new Task(
+    let task = new Task(
       taskData.taskID,
       taskData.taskName,
       taskData.description,
@@ -96,8 +108,9 @@ function loadTasks() {
   }
 
   function saveTasks() {
-    const data = JSON.stringify(taskManager.taskList);
+    let data = JSON.stringify(taskManager.taskList);
     localStorage.setItem("data", data);
+    console.log(data);
   }
 
 function addTaskToDOM(task) {
@@ -105,6 +118,7 @@ function addTaskToDOM(task) {
   let taskCard = document.createElement("div");
   taskCard.className = "task-card";
 
+  //let done_btn = 
   // Set task card HTML
   taskCard.innerHTML =
     
@@ -121,13 +135,16 @@ function addTaskToDOM(task) {
     "<strong>Due Date:</strong> " +
     task.dueDate +
     "<br>" +
-    "<strong>Status:</strong> " + '<span class="spin">'+
+    "<strong>Status:</strong> " + '<span class="spin" id="status_'+
+    task.taskID +
+    '" >'+
     task.status + "</span>" +
     "</div>" +
     '<button class="delete-button"   data-id="'+
     task.taskID +
-    '">Delete</button>' +  '<button   class="btn btn-primary doneButton">Done</button>';
-    
+    '">Delete</button>' +  ((task.status != 'Done') ? 
+    '<button   class="doneButton" data-id='+
+    task.taskID +'">Done</button>' : '');
   
 
   // Append task card to task list container
@@ -274,4 +291,3 @@ find target.parentElement
 use querry selector all on status [i] change status at index
 using the querry selctor on the parent we can find the done buuton @ index [i] set display none
 */
-
